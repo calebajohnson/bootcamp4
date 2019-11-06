@@ -45,7 +45,7 @@ class AddBuilding extends React.Component {
     }
 
 
-    addElement = (event) => {
+    addElement = () => {
         this.state.entry.push({
             "id" : this.props.newestId,
             "code" : this.state.code,
@@ -57,11 +57,14 @@ class AddBuilding extends React.Component {
             "address" : this.state.address
         })
 
-        this.props.dataUpdate(this.state.entry)
-        
-        this.props.incrementNewId(this.props.new_id)
+        this.updateValues();
 
 
+    }
+
+    updateValues() {
+        this.props.dataUpdate(this.state.entry);
+        this.props.incrementNewId(this.props.new_id);
     }
 
 	render() {
